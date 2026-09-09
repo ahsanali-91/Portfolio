@@ -426,13 +426,19 @@
     align-items: baseline;
     padding: 26px 0;
     border-top: 1px solid var(--line);
+    color: inherit;
+    text-decoration: none;
+    transition: padding-left 0.2s ease;
   }
   .proj:last-child{ border-bottom: 1px solid var(--line); }
+  a.proj:hover{ padding-left: 6px; }
+  a.proj:hover .proj-name{ color: var(--accent); }
   .proj-name{
     font-family: var(--display);
     font-size: 19px;
     font-weight: 600;
     margin: 0 0 8px;
+    transition: color 0.2s ease;
   }
   .proj-org{
     font-size: 13px;
@@ -668,57 +674,57 @@
 
       <div class="proj">
         <div>
-          <p class="proj-name">Mountain Sniper Shooting: FPS</p>
-          <p class="proj-org">Lead Unity 3D developer</p>
-          <p class="proj-desc">FPS mechanics, AI, UI/UX and the animation system, built and optimized for mobile.</p>
-        </div>
-        <div class="proj-metric"><span class="proj-metric-num" data-count="10000000" data-suffix="M+">0</span><small>downloads</small></div>
-      </div>
-
-      <div class="proj">
-        <div>
-          <p class="proj-name">Fly Fighter Jet</p>
-          <p class="proj-org">Unity 3D mobile game</p>
-          <p class="proj-desc">Flight mechanics, HUD/UI and physics built from the ground up.</p>
-        </div>
-        <div class="proj-metric"><span class="proj-metric-num" data-count="5000000" data-suffix="M+">0</span><small>downloads</small></div>
-      </div>
-
-      <div class="proj">
-        <div>
-          <p class="proj-name">The Last Commando I &amp; II</p>
-          <p class="proj-org">Unity 3D, two-title series</p>
-          <p class="proj-desc">Core gameplay systems, AI, animation and performance optimization across both releases.</p>
-        </div>
-        <div class="proj-metric"><span class="proj-metric-num" data-count="2000000" data-suffix="M+">0</span><small>combined downloads</small></div>
-      </div>
-
-      <div class="proj">
-        <div>
-          <p class="proj-name">Delta eForce: Military Shooting</p>
-          <p class="proj-org">Unity 3D mobile game</p>
-          <p class="proj-desc">Modular gameplay architecture, AI systems and performance optimization.</p>
-        </div>
-        <div class="proj-metric"><span class="proj-metric-num" data-count="1000000" data-suffix="M+">0</span><small>downloads</small></div>
-      </div>
-
-      <div class="proj">
-        <div>
-          <p class="proj-name">RVG Cricket</p>
-          <p class="proj-org">Rockville Technologies</p>
-          <p class="proj-desc">Built 60% of the core Unity systems for realistic cricket gameplay, with Photon multiplayer and Android performance work.</p>
-        </div>
-        <div class="proj-metric"><span class="proj-metric-num" data-count="1000000" data-suffix="M+">0</span><small>downloads</small></div>
-      </div>
-
-      <div class="proj">
-        <div>
           <p class="proj-name">CricWar</p>
           <p class="proj-org">Rockville Technologies</p>
           <p class="proj-desc">Owned 95% of core Unity development — a modular, scalable architecture with real-time multiplayer and scoring.</p>
         </div>
         <div class="proj-metric" style="font-size:17px; white-space:normal;">Releasing Soon<small>95% Unity development ownership</small></div>
       </div>
+
+      <a class="proj" href="https://play.google.com/store/apps/details?id=com.rockvillegames.real.cricket.game" target="_blank" rel="noopener">
+        <div>
+          <p class="proj-name">RVG Cricket</p>
+          <p class="proj-org">Rockville Technologies</p>
+          <p class="proj-desc">Built 60% of the core Unity systems for realistic cricket gameplay, with Photon multiplayer and Android performance work.</p>
+        </div>
+        <div class="proj-metric">2024<small>released</small></div>
+      </a>
+
+      <a class="proj" href="https://play.google.com/store/apps/details?id=com.delta.force.counter.terrorist.war" target="_blank" rel="noopener">
+        <div>
+          <p class="proj-name">Delta eForce: Military Shooting</p>
+          <p class="proj-org">Unity 3D mobile game</p>
+          <p class="proj-desc">Modular gameplay architecture, AI systems and performance optimization.</p>
+        </div>
+        <div class="proj-metric">2018<small>released</small></div>
+      </a>
+
+      <a class="proj" href="https://play.google.com/store/apps/details?id=com.skippy.the.last.commando.free" target="_blank" rel="noopener">
+        <div>
+          <p class="proj-name">The Last Commando I &amp; II</p>
+          <p class="proj-org">Unity 3D, two-title series</p>
+          <p class="proj-desc">Core gameplay systems, AI, animation and performance optimization across both releases.</p>
+        </div>
+        <div class="proj-metric">2017<small>released</small></div>
+      </a>
+
+      <a class="proj" href="https://play.google.com/store/apps/details?id=com.skippy.jet.air.strike.mission" target="_blank" rel="noopener">
+        <div>
+          <p class="proj-name">Fly Fighter Jet</p>
+          <p class="proj-org">Unity 3D mobile game</p>
+          <p class="proj-desc">Flight mechanics, HUD/UI and physics built from the ground up.</p>
+        </div>
+        <div class="proj-metric">2016<small>released</small></div>
+      </a>
+
+      <a class="proj" href="https://play.google.com/store/apps/details?id=com.skippy.mountain.sniper.shooting" target="_blank" rel="noopener">
+        <div>
+          <p class="proj-name">Mountain Sniper Shooting: FPS</p>
+          <p class="proj-org">Lead Unity 3D developer</p>
+          <p class="proj-desc">FPS mechanics, AI, UI/UX and the animation system, built and optimized for mobile.</p>
+        </div>
+        <div class="proj-metric">2014<small>released</small></div>
+      </a>
 
     </div>
   </div>
