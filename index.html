@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahsan Ali — Senior Unity Developer</title>
+<meta name="description" content="Ahsan Ali, Senior Unity Developer. 12+ years shipping cross-platform games with 30M+ downloads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10131A;
+    --bg-panel: #171B24;
+    --bg-panel-2: #1D2230;
+    --line: #2A3040;
+    --text: #ECE9E2;
+    --text-dim: #9AA1B0;
+    --text-faint: #616A7D;
+    --accent: #E8A33D;
+    --accent-dim: #B9803060;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --display: 'Space Grotesk', sans-serif;
+    --maxw: 1120px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(16,19,26,0.86);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .nav-name-main{ line-height: 1; color: var(--accent); font-size: 19px; }
+  .nav-name-sub{
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 9.5px;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    padding-left: 9px;
+    border-left: 1px solid var(--line);
+  }
+  .nav-links{
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0; padding: 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .nav-links a{ text-decoration: none; position: relative; padding-bottom: 3px; }
+  .nav-links a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+  }
+  .nav-links a:hover{ color: var(--text); }
+  .nav-links a:hover::after{ width: 100%; }
+  .nav-links a.active{ color: var(--text); }
+  .nav-links a.active::after{ width: 100%; }
+  .nav-cta-icon{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .nav-cta-icon:hover{ background: var(--accent); transform: scale(1.06); }
+  .nav-toggle{ display: none; }
+
+  .progress-track{
+    height: 2px;
+    width: 100%;
+    background: var(--line);
+  }
+  .progress-fill{
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transform-origin: left;
+    transition: width 0.08s linear;
+  }
+
+  @media (max-width: 780px){
+    .nav-links{ display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 96px 0 84px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  #mesh{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #stars{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 0;
+  }
+  .hero-grid{
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 22px;
+    letter-spacing: 0.02em;
+  }
+  .hero h1{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(34px, 4.6vw, 54px);
+    line-height: 1.12;
+    margin: 0 0 22px;
+    max-width: 15ch;
+  }
+  .hero-lede{
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 46ch;
+    margin: 0 0 34px;
+  }
+  .hero-ctas{
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 22px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary{
+    background: var(--accent);
+    color: #171308;
+  }
+  .btn-primary:hover{ background: #f0b458; }
+  .btn-secondary{
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+  .btn-secondary:hover{ border-color: var(--text-dim); }
+
+  /* Console panel */
+  .console{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 13px;
+    overflow: hidden;
+  }
+  .console-head{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--line);
+    color: var(--text-faint);
+  }
+  .console-dot{
+    width:7px; height:7px; border-radius:50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(232,163,61,0.6);
+    animation: dot-pulse 2s infinite;
+  }
+  @keyframes dot-pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(232,163,61,0.55); }
+    70%{ box-shadow: 0 0 0 9px rgba(232,163,61,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(232,163,61,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .console-dot{ animation: none; }
+  }
+  .console-body{ padding: 16px 18px; }
+  .console-row{
+    display:flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .console-row:last-child{ border-bottom: none; }
+  .console-key{ color: var(--text-faint); }
+  .console-val{ color: var(--text); font-weight: 500; }
+  .console-val.accent{ color: var(--accent); }
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 76px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type{ border-bottom: none; }
+  .section-label{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  .section-title{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(24px, 2.6vw, 32px);
+    margin: 0 0 44px;
+    max-width: 22ch;
+  }
+  .section-note{
+    font-size: 14px;
+    color: var(--text-faint);
+    max-width: 56ch;
+    margin: -30px 0 40px;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .stat{
+    padding: 30px 24px;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child{ border-right: none; }
+  .stat-num{
+    font-family: var(--display);
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .stat-label{
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+  @media (max-width: 780px){
+    .stats{ grid-template-columns: 1fr 1fr; }
+    .stat{ border-bottom: 1px solid var(--line); }
+    .stat:nth-child(2n){ border-right: none; }
+  }
+  .stats-note{
+    font-size: 13px;
+    color: var(--text-faint);
+    margin: 16px 2px 0;
+  }
+
+  /* ---------- EXPERIENCE (build log) ---------- */
+  .log{
+    position: relative;
+    border-left: 1px solid var(--line);
+    padding-left: 34px;
+  }
+  .log-entry{
+    position: relative;
+    padding-bottom: 46px;
+  }
+  .log-entry:last-child{ padding-bottom: 0; }
+  @property --fill{
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+  }
+  .log-entry::before{
+    content: "";
+    position: absolute;
+    left: -34px;
+    transform: translateX(-50%);
+    top: 4px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    --fill: 0%;
+    background: conic-gradient(var(--accent) var(--fill), rgba(236,233,226,0.85) 0deg);
+    transition: --fill 0.2s ease;
+  }
+  .log-entry.active::before{
+    --fill: 100%;
+    transition: --fill 1s ease;
+  }
+  .log-entry::after{
+    content: "";
+    position: absolute;
+    left: -34px;
+    transform: translateX(-50%);
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .log-entry::before{ transition: none; }
+  }
+  .log-date{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .log-role{
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+  .log-org{
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .log-points{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 62ch;
+  }
+  .log-points li{
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .log-points li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--text-faint);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-list{
+    display: flex;
+    flex-direction: column;
+  }
+  .proj{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .proj:last-child{ border-bottom: 1px solid var(--line); }
+  .proj-name{
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .proj-org{
+    font-size: 13px;
+    color: var(--text-faint);
+    font-family: var(--mono);
+    margin: 0 0 10px;
+  }
+  .proj-desc{
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 58ch;
+    margin: 0;
+  }
+  .proj-metric{
+    font-family: var(--mono);
+    font-size: 22px;
+    color: var(--accent);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .proj-metric small{
+    display: block;
+    font-size: 11px;
+    color: var(--text-faint);
+    font-weight: 400;
+    margin-top: 3px;
+  }
+  .proj-metric-num{ display: inline-block; }
+  @media (max-width: 640px){
+    .proj{ grid-template-columns: 1fr; }
+    .proj-metric{ text-align: left; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{
+    margin-bottom: 30px;
+  }
+  .skill-group:last-child{ margin-bottom: 0; }
+  .skill-group-title{
+    font-size: 13px;
+    color: var(--text-faint);
+    margin: 0 0 12px;
+    font-family: var(--mono);
+  }
+  .skill-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag{
+    font-size: 13px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 22px 26px;
+  }
+  .edu-degree{
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+  }
+  .edu-school{
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  .edu-date{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-inner{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+  }
+  .contact-links{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contact-link{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .contact-link:last-child{ border-bottom: 1px solid var(--line); }
+  .contact-link span:first-child{ color: var(--text-faint); font-family: var(--mono); font-size: 13px; }
+  .contact-link span:last-child{ color: var(--text); }
+  .contact-link:hover span:last-child{ color: var(--accent); }
+  @media (max-width: 780px){
+    .contact-inner{ grid-template-columns: 1fr; }
+  }
+  footer{
+    padding: 28px 0 40px;
+    color: var(--text-faint);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name"><span class="nav-name-main">Ahsan Ali</span><span class="nav-name-sub">Software<br>Engineer</span></div>
+    <ul class="nav-links">
+      <li><a href="#work">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta-icon" href="https://wa.me/923125127871" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="#FFFFFF"><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.08-1.33A9.94 9.94 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2zm5.85 14.24c-.25.7-1.45 1.34-2 1.42-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.68-.62-2.96-1.28-4.89-4.25-5.04-4.45-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.6-.37.8-.37.2 0 .4 0 .58.01.19.01.44-.07.68.53.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.44.53-.15.15-.3.31-.13.6.17.3.76 1.26 1.63 2.04 1.12 1 2.06 1.32 2.36 1.47.3.15.47.13.65-.08.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.42z"/></svg>
+    </a>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+</header>
+
+<section class="hero">
+  <canvas id="stars"></canvas>
+  <canvas id="mesh"></canvas>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Senior Unity Developer · Based in Islamabad — open to onsite or remote roles</p>
+      <h1>Twelve years of shipping games players keep coming back to.</h1>
+      <p class="hero-lede">I build performant, cross-platform Unity titles — FPS, racing, simulation and real-time multiplayer sports — that have reached 30M+ players across Android, iOS and WebGL.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/923125127871" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn btn-secondary" href="#projects">See the work</a>
+      </div>
+    </div>
+    <div class="console">
+      <div class="console-head"><span class="console-dot"></span> debug.log</div>
+      <div class="console-body">
+        <div class="console-row"><span class="console-key">status</span><span class="console-val accent">online</span></div>
+        <div class="console-row"><span class="console-key">engine</span><span class="console-val accent">Unity 3D · C#</span></div>
+        <div class="console-row"><span class="console-key">platforms</span><span class="console-val accent">Android / iOS / WebGL</span></div>
+        <div class="console-row"><span class="console-key">players_reached</span><span class="console-val accent" data-count="30000000">0</span></div>
+        <div class="console-row"><span class="console-key">years_in_production</span><span class="console-val accent" data-count="12">0</span></div>
+        <div class="console-row"><span class="console-key">titles_shipped</span><span class="console-val accent" data-count="10" data-suffix="+">0</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="record">
+  <div class="wrap">
+    <p class="section-label">Track record</p>
+    <h2 class="section-title">Numbers from thirteen years in production Unity work.</h2>
+    <div class="stats">
+      <div class="stat"><div class="stat-num" data-count="30000000" data-suffix="M+">0</div><div class="stat-label">Cumulative downloads</div></div>
+      <div class="stat"><div class="stat-num" data-count="12" data-suffix="+">0</div><div class="stat-label">Years in Unity development</div></div>
+      <div class="stat"><div class="stat-num" data-count="3" data-suffix="">0</div><div class="stat-label">Companies, zero career gaps</div></div>
+      <div class="stat"><div class="stat-num" data-count="10" data-suffix="+">0</div><div class="stat-label">Commercially shipped titles</div></div>
+    </div>
+    <p class="stats-note">Plus several additional titles shipped earlier in my career — no longer publicly listed, so left off this page.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="section-label">Experience</p>
+    <h2 class="section-title">Where the work happened.</h2>
+    <div class="log">
+
+      <div class="log-entry">
+        <div class="log-date">2020 — Present</div>
+        <div class="log-role">Senior Games Engineer</div>
+        <div class="log-org">Rockville Technologies, Pakistan</div>
+        <ul class="log-points">
+          <li>Architected and implemented core gameplay and UI/UX systems in Unity and C#</li>
+          <li>Built real-time multiplayer features using Photon (PUN)</li>
+          <li>Integrated backend services with Firebase and custom REST APIs</li>
+          <li>Optimized performance for low- and mid-range Android hardware</li>
+          <li>Collaborated with design, art and QA to deliver production-ready builds</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">2016 — 2020</div>
+        <div class="log-role">Senior Games Developer</div>
+        <div class="log-org">Skippy Apps</div>
+        <ul class="log-points">
+          <li>Shipped titles that collectively reached 30M+ downloads on Android</li>
+          <li>Designed and implemented core gameplay mechanics in Unity and C#</li>
+          <li>Partnered with artists and designers on animation and UI/UX</li>
+          <li>Diagnosed and resolved crashes and gameplay-critical bugs</li>
+          <li>Mentored developers through code review and technical training</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">2013 — 2016</div>
+        <div class="log-role">Unity 3D Developer</div>
+        <div class="log-org">Absologix Solutions (Jolta Technologies)</div>
+        <ul class="log-points">
+          <li>Built foundational gameplay, UI and AI systems in Unity 3D</li>
+          <li>Gained hands-on production experience across full release cycles</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="section-label">Featured projects</p>
+    <h2 class="section-title">Titles shipped, systems built, players reached.</h2>
+    <p class="section-note">These are the titles I can still point to directly. I shipped a number of others earlier in my career that are no longer live or listed publicly.</p>
+    <div class="proj-list">
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">Mountain Sniper Shooting: FPS</p>
+          <p class="proj-org">Lead Unity 3D developer</p>
+          <p class="proj-desc">FPS mechanics, AI, UI/UX and the animation system, built and optimized for mobile.</p>
+        </div>
+        <div class="proj-metric"><span class="proj-metric-num" data-count="10000000" data-suffix="M+">0</span><small>downloads</small></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">Fly Fighter Jet</p>
+          <p class="proj-org">Unity 3D mobile game</p>
+          <p class="proj-desc">Flight mechanics, HUD/UI and physics built from the ground up.</p>
+        </div>
+        <div class="proj-metric"><span class="proj-metric-num" data-count="5000000" data-suffix="M+">0</span><small>downloads</small></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">The Last Commando I &amp; II</p>
+          <p class="proj-org">Unity 3D, two-title series</p>
+          <p class="proj-desc">Core gameplay systems, AI, animation and performance optimization across both releases.</p>
+        </div>
+        <div class="proj-metric"><span class="proj-metric-num" data-count="2000000" data-suffix="M+">0</span><small>combined downloads</small></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">Delta eForce: Military Shooting</p>
+          <p class="proj-org">Unity 3D mobile game</p>
+          <p class="proj-desc">Modular gameplay architecture, AI systems and performance optimization.</p>
+        </div>
+        <div class="proj-metric"><span class="proj-metric-num" data-count="1000000" data-suffix="M+">0</span><small>downloads</small></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">RVG Cricket</p>
+          <p class="proj-org">Rockville Technologies</p>
+          <p class="proj-desc">Built 60% of the core Unity systems for realistic cricket gameplay, with Photon multiplayer and Android performance work.</p>
+        </div>
+        <div class="proj-metric"><span class="proj-metric-num" data-count="1000000" data-suffix="M+">0</span><small>downloads</small></div>
+      </div>
+
+      <div class="proj">
+        <div>
+          <p class="proj-name">CricWar</p>
+          <p class="proj-org">Rockville Technologies</p>
+          <p class="proj-desc">Owned 95% of core Unity development — a modular, scalable architecture with real-time multiplayer and scoring.</p>
+        </div>
+        <div class="proj-metric" style="font-size:17px; white-space:normal;">Releasing Soon<small>95% Unity development ownership</small></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="section-label">Skills</p>
+    <h2 class="section-title">The systems I work in.</h2>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Programming &amp; architecture</p>
+      <div class="skill-tags">
+        <span class="skill-tag">C#</span><span class="skill-tag">OOP</span><span class="skill-tag">Modular architecture</span><span class="skill-tag">Design patterns</span><span class="skill-tag">REST API integration</span><span class="skill-tag">JSON data management</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Engine &amp; platforms</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Unity 3D</span><span class="skill-tag">Android</span><span class="skill-tag">iOS</span><span class="skill-tag">WebGL</span><span class="skill-tag">Build optimization</span><span class="skill-tag">VR</span><span class="skill-tag">Third-party SDKs</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Gameplay &amp; systems</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Gameplay mechanics</span><span class="skill-tag">UI/UX implementation</span><span class="skill-tag">AI &amp; behavior systems</span><span class="skill-tag">Physics</span><span class="skill-tag">Animation systems</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Multiplayer &amp; networking</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Real-time PvP</span><span class="skill-tag">Photon (PUN)</span><span class="skill-tag">RPC &amp; network sync</span><span class="skill-tag">Client-server architecture</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Optimization &amp; debugging</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Performance profiling</span><span class="skill-tag">Build size reduction</span><span class="skill-tag">Troubleshooting</span><span class="skill-tag">Memory management</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-title">Leadership &amp; collaboration</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Technical mentorship</span><span class="skill-tag">Code reviews</span><span class="skill-tag">Cross-discipline collaboration</span><span class="skill-tag">Workflow optimization</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="section-label">Education</p>
+    <div class="edu">
+      <div>
+        <div class="edu-degree">Bachelor's in Software Engineering</div>
+        <div class="edu-school">University of Engineering and Technology, Taxila, Pakistan</div>
+      </div>
+      <div class="edu-date">2009 — 2013</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Have a Unity project that needs to ship?</h2>
+      <p class="hero-lede" style="margin-bottom:0;">Available for remote, onsite, national or international Unity development work — full titles, gameplay systems, or performance passes on an existing build.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://wa.me/923125127871" target="_blank" rel="noopener"><span>whatsapp</span><span>+92 312 5127871</span></a>
+      <a class="contact-link" href="mailto:ahsanali_11@hotmail.com"><span>email</span><span>ahsanali_11@hotmail.com</span></a>
+      <a class="contact-link" href="tel:+923125127871"><span>phone</span><span>+92 312 5127871</span></a>
+      <a class="contact-link" href="https://www.linkedin.com/in/ahsanali11/" target="_blank" rel="noopener"><span>linkedin</span><span>linkedin.com/in/ahsanali11</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Ahsan Ali — Senior Unity Developer</span>
+  <span>Titles shipped, players served.</span>
+</footer>
+
+<script>
+  // Animated counters
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function formatterFor(el, target){
+    if(el.hasAttribute('data-suffix')){
+      var suffix = el.getAttribute('data-suffix');
+      return function(n){
+        if(target >= 1000000) return Math.round(n / 1000000) + suffix;
+        return n + suffix;
+      };
+    }
+    return function(n){
+      if(n >= 1000000) return (n / 1000000).toFixed(0) + 'M+';
+      return n.toString();
+    };
+  }
+
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var format = formatterFor(el, target);
+    if(reduceMotion){
+      el.textContent = format(target);
+      return;
+    }
+    var start = null;
+    var duration = 750;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = format(Math.floor(eased * target));
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = format(target);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Hero console readout — counts up as soon as the page loads
+  document.querySelectorAll('.console-val[data-count]').forEach(animateCounter);
+
+  // Track record stats + featured project figures — count up the moment they scroll into view
+  var statEls = document.querySelectorAll('.stat-num[data-count], .proj-metric-num[data-count]');
+  if('IntersectionObserver' in window){
+    var statObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(function(el){ statObserver.observe(el); });
+  } else {
+    statEls.forEach(animateCounter);
+  }
+
+  // Subtle hero mesh — slow-drifting node grid, low-key viewport motif
+  (function(){
+    var canvas = document.getElementById('mesh');
+    if(!canvas) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ctx = canvas.getContext('2d');
+    var w, h, nodes = [];
+    var hero = canvas.closest('.hero');
+
+    function resize(){
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+      var cols = Math.round(w / 90);
+      var rows = Math.round(h / 90);
+      nodes = [];
+      for(var i = 0; i <= cols; i++){
+        for(var j = 0; j <= rows; j++){
+          nodes.push({
+            x: (i / cols) * w,
+            y: (j / rows) * h,
+            ox: (i / cols) * w,
+            oy: (j / rows) * h,
+            p: Math.random() * Math.PI * 2
+          });
+        }
+      }
+    }
+
+    function draw(t){
+      ctx.clearRect(0, 0, w, h);
+      ctx.strokeStyle = 'rgba(232,163,61,0.10)';
+      ctx.fillStyle = 'rgba(232,163,61,0.35)';
+      nodes.forEach(function(n){
+        n.x = n.ox + Math.sin(t/1600 + n.p) * 8;
+        n.y = n.oy + Math.cos(t/1600 + n.p) * 8;
+      });
+      var cell = 90;
+      var cols = Math.round(w / cell) + 1;
+      for(var idx = 0; idx < nodes.length; idx++){
+        var n = nodes[idx];
+        var right = nodes[idx + 1];
+        var down = nodes[idx + Math.round(h/cell) + 1];
+        if(right && (idx+1) % (Math.round(h/cell)+1) !== 0){
+          ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(right.x, right.y); ctx.stroke();
+        }
+        if(down){
+          ctx.beginPath(); ctx.moveTo(n.x, n.y); ctx.lineTo(down.x, down.y); ctx.stroke();
+        }
+      }
+      nodes.forEach(function(n){
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 1.4, 0, Math.PI*2);
+        ctx.fill();
+      });
+      if(!reduce) requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    if(reduce){
+      draw(0);
+    } else {
+      requestAnimationFrame(draw);
+    }
+  })();  // Scroll progress bar — fills as the page scrolls
+  (function(){
+    var fill = document.getElementById('progress-fill');
+    if(!fill) return;
+    function update(){
+      var scrollTop = window.scrollY || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      fill.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();  // Shooting stars — one at a time, from a random offscreen point, in a random
+  // direction, vanishing off the far edge, then reappearing after a random pause.
+  (function(){
+    var canvas = document.getElementById('stars');
+    if(!canvas) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    var ctx = canvas.getContext('2d');
+    var hero = canvas.closest('.hero');
+    var w, h;
+
+    function resize(){
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var margin = 60;
+    var star = null;
+    var nextSpawn = performance.now() + 800;
+    var lastTs = null;
+
+    function spawn(){
+      var edge = Math.floor(Math.random() * 4);
+      var x, y;
+      if(edge === 0){ x = -margin; y = Math.random() * h; }
+      else if(edge === 1){ x = w + margin; y = Math.random() * h; }
+      else if(edge === 2){ x = Math.random() * w; y = -margin; }
+      else { x = Math.random() * w; y = h + margin; }
+
+      var tx = w * 0.1 + Math.random() * w * 0.8;
+      var ty = h * 0.1 + Math.random() * h * 0.8;
+      var dx = tx - x, dy = ty - y;
+      var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      var speed = 465 + Math.random() * 315;
+
+      star = {
+        x: x, y: y,
+        vx: (dx / dist) * speed,
+        vy: (dy / dist) * speed,
+        trail: []
+      };
+    }
+
+    function draw(ts){
+      if(!lastTs) lastTs = ts;
+      var dt = Math.min((ts - lastTs) / 1000, 0.05);
+      lastTs = ts;
+
+      ctx.clearRect(0, 0, w, h);
+
+      if(!star && ts >= nextSpawn){
+        spawn();
+      }
+
+      if(star){
+        star.x += star.vx * dt;
+        star.y += star.vy * dt;
+        star.trail.push({ x: star.x, y: star.y });
+        if(star.trail.length > 10) star.trail.shift();
+
+        for(var i = 0; i < star.trail.length - 1; i++){
+          var p = star.trail[i];
+          var alpha = (i / star.trail.length) * 0.7;
+          ctx.strokeStyle = 'rgba(236,233,226,' + alpha.toFixed(3) + ')';
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          var n = star.trail[i + 1];
+          ctx.lineTo(n.x, n.y);
+          ctx.stroke();
+        }
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, 1.8, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(232,163,61,0.95)';
+        ctx.shadowColor = 'rgba(232,163,61,0.8)';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        var outMargin = margin + 40;
+        if(star.x < -outMargin || star.x > w + outMargin || star.y < -outMargin || star.y > h + outMargin){
+          star = null;
+          nextSpawn = ts + 4500 + Math.random() * 6500;
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+  })();
+
+  // Experience timeline — each entry's ring fills gold clockwise while its
+  // point is in view, and unwinds back to white once it scrolls past.
+  (function(){
+    var entries = document.querySelectorAll('.log-entry');
+    if(!entries.length || !('IntersectionObserver' in window)) return;
+    var ringObserver = new IntersectionObserver(function(list){
+      list.forEach(function(entry){
+        entry.target.classList.toggle('active', entry.isIntersecting);
+      });
+    }, { rootMargin: '-40% 0px -45% 0px', threshold: 0 });
+    entries.forEach(function(el){ ringObserver.observe(el); });
+  })();
+
+  // Nav scrollspy — highlight the current section's link, keep it underlined
+  // on click too, not just while hovering. Nothing is active while the hero
+  // itself is in view, since no nav link points to it.
+  (function(){
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    if(!navLinks.length) return;
+
+    var sections = navLinks.map(function(link){
+      var id = link.getAttribute('href');
+      return id && id.charAt(0) === '#' ? document.querySelector(id) : null;
+    });
+
+    var hero = document.querySelector('.hero');
+
+    function setActive(id){
+      navLinks.forEach(function(link){
+        link.classList.toggle('active', link.getAttribute('href') === id);
+      });
+    }
+
+    function clearActive(){
+      navLinks.forEach(function(link){ link.classList.remove('active'); });
+    }
+
+    function isPastHero(){
+      if(!hero) return true;
+      return hero.getBoundingClientRect().bottom <= window.innerHeight * 0.5;
+    }
+
+    navLinks.forEach(function(link){
+      link.addEventListener('click', function(){
+        setActive(link.getAttribute('href'));
+      });
+    });
+
+    if('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && isPastHero()){
+            setActive('#' + entry.target.id);
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+      sections.forEach(function(section){
+        if(section) observer.observe(section);
+      });
+    }
+
+    window.addEventListener('scroll', function(){
+      if(!isPastHero()) clearActive();
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
